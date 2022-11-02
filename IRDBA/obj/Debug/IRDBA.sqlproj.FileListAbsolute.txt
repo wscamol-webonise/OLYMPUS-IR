@@ -4,3 +4,9 @@ C:\My Data\Projects\OLYMPUS-IR\IRDBA\obj\Debug\IRDBA.dll
 C:\My Data\Projects\OLYMPUS-IR\IRDBA\obj\Debug\IRDBA.pdb
 C:\My Data\Projects\OLYMPUS-IR\IRDBA\bin\Debug\IRDBA.dll
 C:\My Data\Projects\OLYMPUS-IR\IRDBA\bin\Debug\IRDBA.pdb
+C:\Ravinder\Projects\OLYMPUS-IR\IRDBA\bin\Debug\IRDBA.dacpac
+C:\Ravinder\Projects\OLYMPUS-IR\IRDBA\bin\Debug\IRDBA.dll
+C:\Ravinder\Projects\OLYMPUS-IR\IRDBA\bin\Debug\IRDBA.pdb
+C:\Ravinder\Projects\OLYMPUS-IR\IRDBA\obj\Debug\IRDBA.sqlproj.AssemblyReference.cache
+C:\Ravinder\Projects\OLYMPUS-IR\IRDBA\obj\Debug\IRDBA.dll
+C:\Ravinder\Projects\OLYMPUS-IR\IRDBA\obj\Debug\IRDBA.pdb

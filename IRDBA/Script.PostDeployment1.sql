@@ -225,3 +225,168 @@ ALTER TABLE [dbo].[InvestorContactLegalEntity] ADD  CONSTRAINT [DF_InvestorConta
 
 --ALTER TABLE [dbo].[InvestorContactLegalEntity] CHECK CONSTRAINT [FK_InvestorContactLegalEntity_InvestorLegalEntity]
 
+ALTER TABLE [dbo].[InvestorType] ADD  CONSTRAINT [DF_InvestorType_DisplayOrder]  DEFAULT ((1)) FOR [DisplayOrder]
+ALTER TABLE [dbo].[InvestorType] ADD  CONSTRAINT [DF_InvestorType_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[InvestorType] ADD  CONSTRAINT [DF_InvestorType_DateCreated_1]  DEFAULT (getdate()) FOR [CreateDate]
+
+ALTER TABLE [dbo].[CoveragePerson] ADD  CONSTRAINT [DF_CoveragePerson_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[CoveragePerson] ADD  CONSTRAINT [DF_CoveragePerson_CreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [dbo].[CoveragePerson] ADD  CONSTRAINT [DF_CoveragePerson_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[CoveragePerson] ADD  CONSTRAINT [DF_CoveragePerson_UpdateID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[CoveragePerson] ADD  CONSTRAINT [DF_CoveragePerson_UpdateDate]  DEFAULT (getdate()) FOR [UpdateDate]
+ALTER TABLE [dbo].[CoveragePerson] ADD  CONSTRAINT [DF_CoveragePerson_UpdateNode]  DEFAULT ('') FOR [UpdateNode]
+--ALTER TABLE [dbo].[CoveragePerson]  WITH CHECK ADD  CONSTRAINT [FK_CoveragePerson_contactperson] FOREIGN KEY([ContactPersonID])
+--REFERENCES [dbo].[ContactPerson] ([ID])
+--ALTER TABLE [dbo].[CoveragePerson] CHECK CONSTRAINT [FK_CoveragePerson_contactperson]
+--ALTER TABLE [dbo].[CoveragePerson]  WITH CHECK ADD  CONSTRAINT [FK_CoveragePerson_User] FOREIGN KEY([UserID])
+--REFERENCES [AccessControl].[User] ([ID])
+--ALTER TABLE [dbo].[CoveragePerson] CHECK CONSTRAINT [FK_CoveragePerson_User]
+
+ALTER TABLE [dbo].[LPInvestmentCoverage] ADD  CONSTRAINT [DF_InvestmentCoverage_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[LPInvestmentCoverage] ADD  CONSTRAINT [DF_InvestmentCoverage_CreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [dbo].[LPInvestmentCoverage] ADD  CONSTRAINT [DF_InvestmentCoverage_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[LPInvestmentCoverage] ADD  CONSTRAINT [DF_InvestmentCoverage_UpdateID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[LPInvestmentCoverage] ADD  CONSTRAINT [DF_InvestmentCoverage_UpdateDate]  DEFAULT (getdate()) FOR [UpdateDate]
+ALTER TABLE [dbo].[LPInvestmentCoverage] ADD  CONSTRAINT [DF_InvestmentCoverage_UpdateNode]  DEFAULT ('') FOR [UpdateNode]
+--ALTER TABLE [dbo].[LPInvestmentCoverage]  WITH CHECK ADD  CONSTRAINT [FK_LPInvestmentCoverage_CoverageContactPersonID] FOREIGN KEY([CoverageContactPersonID])
+--REFERENCES [dbo].[ContactPerson] ([ID])
+--ALTER TABLE [dbo].[LPInvestmentCoverage] CHECK CONSTRAINT [FK_LPInvestmentCoverage_CoverageContactPersonID]
+--ALTER TABLE [dbo].[LPInvestmentCoverage]  WITH CHECK ADD  CONSTRAINT [FK_LPInvestmentCoverage_LPInvestment] FOREIGN KEY([LPInvestmentID])
+--REFERENCES [dbo].[LPInvestment] ([ID])
+--ALTER TABLE [dbo].[LPInvestmentCoverage] CHECK CONSTRAINT [FK_LPInvestmentCoverage_LPInvestment]
+
+ALTER TABLE [dbo].[InvestorTypeLink] ADD  CONSTRAINT [DF_InvestorTypeLink_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[InvestorTypeLink] ADD  CONSTRAINT [DF_IInvestorTypeLink_CreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [dbo].[InvestorTypeLink] ADD  CONSTRAINT [DF_InvestorTypeLink_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[InvestorTypeLink] ADD  CONSTRAINT [DF_InvestorTypeLink_UpdateID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[InvestorTypeLink] ADD  CONSTRAINT [DF_InvestorTypeLink_UpdateNode]  DEFAULT ('') FOR [UpdateNode]
+--ALTER TABLE [dbo].[InvestorTypeLink]  WITH CHECK ADD  CONSTRAINT [FK_InvestorTypeLink_InvestorID] FOREIGN KEY([InvestorID])
+--REFERENCES [dbo].[Investor] ([ID])
+--ALTER TABLE [dbo].[InvestorTypeLink] CHECK CONSTRAINT [FK_InvestorTypeLink_InvestorID]
+--ALTER TABLE [dbo].[InvestorTypeLink]  WITH CHECK ADD  CONSTRAINT [FK_InvestorTypeLink_InvestoryTypeID] FOREIGN KEY([InvestorTypeID])
+--REFERENCES [dbo].[InvestorType] ([ID])
+--ALTER TABLE [dbo].[InvestorTypeLink] CHECK CONSTRAINT [FK_InvestorTypeLink_InvestoryTypeID]
+
+ALTER TABLE [dbo].[InvestorConsultant] ADD  CONSTRAINT [DF_InvestorConsultant_NaturalOfService]  DEFAULT ('') FOR [NaturalOfService]
+ALTER TABLE [dbo].[InvestorConsultant] ADD  CONSTRAINT [DF_InvestorConsultant_CreateId]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[InvestorConsultant] ADD  CONSTRAINT [DF_InvestorConsultant_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[InvestorConsultant] ADD  CONSTRAINT [DF_InvestorConsultant_UpdateID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[InvestorConsultant] ADD  CONSTRAINT [DF_InvestorConsultant_UpdateNode]  DEFAULT ('') FOR [UpdateNode]
+--ALTER TABLE [dbo].[InvestorConsultant]  WITH CHECK ADD  CONSTRAINT [FK_InvestorConsultant_Consultant] FOREIGN KEY([ConsultantID])
+--REFERENCES [dbo].[Investor] ([ID])
+--ALTER TABLE [dbo].[InvestorConsultant] CHECK CONSTRAINT [FK_InvestorConsultant_Consultant]
+--ALTER TABLE [dbo].[InvestorConsultant]  WITH CHECK ADD  CONSTRAINT [FK_InvestorConsultant_ConsultantTypeID] FOREIGN KEY([ConsultantTypeID])
+--REFERENCES [dbo].[InvestorConsultantType] ([ID])
+--ALTER TABLE [dbo].[InvestorConsultant] CHECK CONSTRAINT [FK_InvestorConsultant_ConsultantTypeID]
+--ALTER TABLE [dbo].[InvestorConsultant]  WITH CHECK ADD  CONSTRAINT [FK_InvestorConsultant_Investor] FOREIGN KEY([InvestorID])
+--REFERENCES [dbo].[Investor] ([ID])
+--ALTER TABLE [dbo].[InvestorConsultant] CHECK CONSTRAINT [FK_InvestorConsultant_Investor]
+
+ALTER TABLE [dbo].[InvestorAddress] ADD  CONSTRAINT [DF_InvestorAddress_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[InvestorAddress] ADD  CONSTRAINT [DF_InvestorAddress_CreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [dbo].[InvestorAddress] ADD  CONSTRAINT [DF_InvestorAddress_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[InvestorAddress] ADD  CONSTRAINT [DF_InvestorAddress_UpdateID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[InvestorAddress] ADD  CONSTRAINT [DF_InvestorAddress_UpdateNode]  DEFAULT ('') FOR [UpdateNode]
+--ALTER TABLE [dbo].[InvestorAddress]  WITH CHECK ADD  CONSTRAINT [FK_InvestorAddress_Address] FOREIGN KEY([AddressID])
+--REFERENCES [dbo].[Address] ([ID])
+--ALTER TABLE [dbo].[InvestorAddress] CHECK CONSTRAINT [FK_InvestorAddress_Address]
+--ALTER TABLE [dbo].[InvestorAddress]  WITH CHECK ADD  CONSTRAINT [FK_InvestorAddress_Investor] FOREIGN KEY([InvestorID])
+--REFERENCES [dbo].[Investor] ([ID])
+--ALTER TABLE [dbo].[InvestorAddress] CHECK CONSTRAINT [FK_InvestorAddress_Investor]
+
+ALTER TABLE [dbo].[LPInvestmentDetail] ADD  CONSTRAINT [DF_InvestmentDetail_Probability]  DEFAULT ((0)) FOR [Probability]
+ALTER TABLE [dbo].[LPInvestmentDetail] ADD  CONSTRAINT [DF_InvestmentDetail_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[LPInvestmentDetail] ADD  CONSTRAINT [DF_IInvestmentDetail_CreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [dbo].[LPInvestmentDetail] ADD  CONSTRAINT [DF_InvestmentDetail_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[LPInvestmentDetail] ADD  CONSTRAINT [DF_InvestmentDetail_UpdateID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[LPInvestmentDetail] ADD  CONSTRAINT [DF_InvestmentDetail_UpdateNode]  DEFAULT ('') FOR [UpdateNode]
+--ALTER TABLE [dbo].[LPInvestmentDetail]  WITH CHECK ADD  CONSTRAINT [FK_LPInvestmentDetail_Investment] FOREIGN KEY([LPInvestmentID])
+--REFERENCES [dbo].[LPInvestment] ([ID])
+--ALTER TABLE [dbo].[LPInvestmentDetail] CHECK CONSTRAINT [FK_LPInvestmentDetail_Investment]
+
+ALTER TABLE [dbo].[ThirdPartyType] ADD  CONSTRAINT [DF_ThirdPartyType_DisplayOrder]  DEFAULT ((1)) FOR [DisplayOrder]
+ALTER TABLE [dbo].[ThirdPartyType] ADD  CONSTRAINT [DF_ThirdPartyType_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[ThirdPartyType] ADD  CONSTRAINT [DF_ThirdPartyType_CreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [dbo].[ThirdPartyType] ADD  CONSTRAINT [DF_ThirdPartyType_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[ThirdPartyType] ADD  CONSTRAINT [DF_ThirdPartyType_UpdateID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[ThirdPartyType] ADD  CONSTRAINT [DF_ThirdPartyType_UpdateNode]  DEFAULT ('') FOR [UpdateNode]
+
+ALTER TABLE [dbo].[ContactPerson] ADD  CONSTRAINT [DF_ContactPerson_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[ContactPerson] ADD  CONSTRAINT [DF_Contact_CreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [dbo].[ContactPerson] ADD  CONSTRAINT [DF_ContactPerson_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[ContactPerson] ADD  CONSTRAINT [DF_ContactPerson_UpdateID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[ContactPerson] ADD  CONSTRAINT [DF_ContactPerson_UpdateNode]  DEFAULT ('') FOR [UpdateNode]
+--ALTER TABLE [dbo].[ContactPerson]  WITH CHECK ADD  CONSTRAINT [FK_ContactPerson_GDPRStatus] FOREIGN KEY([GDPRStatus])
+--REFERENCES [dbo].[GDPRStatus] ([ID])
+--ALTER TABLE [dbo].[ContactPerson] CHECK CONSTRAINT [FK_ContactPerson_GDPRStatus]
+
+ALTER TABLE [dbo].[InvestorContactCategory] ADD  CONSTRAINT [DF_InvestorContactCategory_DisplayOrder]  DEFAULT ((1)) FOR [DisplayOrder]
+ALTER TABLE [dbo].[InvestorContactCategory] ADD  CONSTRAINT [DF_InvestorContactCategory_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[InvestorContactCategory] ADD  CONSTRAINT [DF_InvestorContactCategory_DateCreated]  DEFAULT (getdate()) FOR [CreateDate]
+
+ALTER TABLE [dbo].[InvestorInfoShareType] ADD  CONSTRAINT [DF_InvestorInfoShareType_DisplayOrder]  DEFAULT ((1)) FOR [DisplayOrder]
+ALTER TABLE [dbo].[InvestorInfoShareType] ADD  CONSTRAINT [DF_InvestorInfoShareType_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[InvestorInfoShareType] ADD  CONSTRAINT [DF_InvestorInfoShareType_DateCreated]  DEFAULT (getdate()) FOR [CreateDate]
+
+ALTER TABLE [dbo].[Address] ADD  CONSTRAINT [DF_Address_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[Address] ADD  CONSTRAINT [DF_Address_CreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [dbo].[Address] ADD  CONSTRAINT [DF_Address_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[Address] ADD  CONSTRAINT [DF_Address_UpdateID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[Address] ADD  CONSTRAINT [DF_Address_UpdateNode]  DEFAULT ('') FOR [UpdateNode]
+--ALTER TABLE [dbo].[Address]  WITH CHECK ADD FOREIGN KEY([CountryID])
+--REFERENCES [dbo].[Country] ([ID])
+--ALTER TABLE [dbo].[Address]  WITH CHECK ADD  CONSTRAINT [FK_Address_AddressType] FOREIGN KEY([AddressTypeID])
+--REFERENCES [dbo].[AddressType] ([ID])
+--ALTER TABLE [dbo].[Address] CHECK CONSTRAINT [FK_Address_AddressType]
+--ALTER TABLE [dbo].[Address]  WITH CHECK ADD  CONSTRAINT [FK_Address_StateProvince] FOREIGN KEY([StateProvinceID])
+--REFERENCES [dbo].[StateProvince] ([ID])
+--ALTER TABLE [dbo].[Address] CHECK CONSTRAINT [FK_Address_StateProvince]
+
+ALTER TABLE [dbo].[StateProvince] ADD  CONSTRAINT [DF_StateProvince_Name]  DEFAULT ('') FOR [Name]
+ALTER TABLE [dbo].[StateProvince] ADD  CONSTRAINT [DF_StateProvince_DisplayOrder]  DEFAULT ((1)) FOR [DisplayOrder]
+ALTER TABLE [dbo].[StateProvince] ADD  CONSTRAINT [DF_StateProvince_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[StateProvince] ADD  CONSTRAINT [DF_StateProvince_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[StateProvince] ADD  CONSTRAINT [DF_StateProvince_UpdateID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[StateProvince] ADD  CONSTRAINT [DF_StateProvince_UpdateNode]  DEFAULT ('') FOR [UpdateNode]
+--ALTER TABLE [dbo].[StateProvince]  WITH CHECK ADD  CONSTRAINT [FK_StateProvince_Country] FOREIGN KEY([CountryID])
+--REFERENCES [dbo].[Country] ([ID])
+--ALTER TABLE [dbo].[StateProvince] CHECK CONSTRAINT [FK_StateProvince_Country]
+
+ALTER TABLE [dbo].[Country] ADD  CONSTRAINT [DF_Country_Name]  DEFAULT ('') FOR [Name]
+ALTER TABLE [dbo].[Country] ADD  CONSTRAINT [DF_Country_DisplayOrder]  DEFAULT ((2)) FOR [DisplayOrder]
+ALTER TABLE [dbo].[Country] ADD  CONSTRAINT [DF_Country_Deleted]  DEFAULT ((0)) FOR [Deleted]
+ALTER TABLE [dbo].[Country] ADD  CONSTRAINT [DF_Country_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[Country] ADD  CONSTRAINT [DF_Country_DateCreated]  DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [dbo].[Country] ADD  CONSTRAINT [DF_Country_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[Country] ADD  CONSTRAINT [DF_Country_LastChangeID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[Country] ADD  CONSTRAINT [DF_Country_UpdateNode]  DEFAULT ('') FOR [UpdateNode]
+ALTER TABLE [dbo].[Country] ADD  DEFAULT ((0)) FOR [IsGDPRCountry]
+--ALTER TABLE [dbo].[Country]  WITH CHECK ADD  CONSTRAINT [FK_Country_Currency] FOREIGN KEY([CurrencyID])
+--REFERENCES [dbo].[Currency] ([ID])
+--ALTER TABLE [dbo].[Country] CHECK CONSTRAINT [FK_Country_Currency]
+
+ALTER TABLE [dbo].[InvStrategy] ADD  CONSTRAINT [DF_InvStrategy_Name]  DEFAULT ('') FOR [Name]
+ALTER TABLE [dbo].[InvStrategy] ADD  CONSTRAINT [DF_InvStrategy_DisplayOrder]  DEFAULT ((1)) FOR [DisplayOrder]
+ALTER TABLE [dbo].[InvStrategy] ADD  CONSTRAINT [DF_InvStrategy_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[InvStrategy] ADD  CONSTRAINT [DF_InvStrategy_CreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [dbo].[InvStrategy] ADD  CONSTRAINT [DF_InvStrategy_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[InvStrategy] ADD  CONSTRAINT [DF_InvStrategy_UpdateID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[InvStrategy] ADD  CONSTRAINT [DF_InvStrategy_UpdateNode]  DEFAULT ('') FOR [UpdateNode]
+ALTER TABLE [dbo].[InvStrategy] ADD  DEFAULT ((0)) FOR [Active]
+
+ALTER TABLE [dbo].[InvestmentStatus] ADD  CONSTRAINT [DF_InvestmentStatus_Name]  DEFAULT ('') FOR [Name]
+ALTER TABLE [dbo].[InvestmentStatus] ADD  CONSTRAINT [DF_InvestmentStatus_DisplayOrder]  DEFAULT ((1)) FOR [DisplayOrder]
+ALTER TABLE [dbo].[InvestmentStatus] ADD  CONSTRAINT [DF_InvestmentStatus_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[InvestmentStatus] ADD  CONSTRAINT [DF_InvestmentStatus_CreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [dbo].[InvestmentStatus] ADD  CONSTRAINT [DF_InvestmentStatus_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[InvestmentStatus] ADD  CONSTRAINT [DF_InvestmentStatus_UpdateID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[InvestmentStatus] ADD  CONSTRAINT [DF_InvestmentStatus_UpdateNode]  DEFAULT ('') FOR [UpdateNode]
+ALTER TABLE [dbo].[InvestmentStatus] ADD  CONSTRAINT [DF__Investmen__PriorityOrder]  DEFAULT ((100)) FOR [PriorityOrder]
+
+ALTER TABLE [dbo].[InvestmentPriority] ADD  CONSTRAINT [DF_InvestmentPriority_Name]  DEFAULT ('') FOR [Name]
+ALTER TABLE [dbo].[InvestmentPriority] ADD  CONSTRAINT [DF_InvestmentPriority_DisplayOrder]  DEFAULT ((1)) FOR [DisplayOrder]
+ALTER TABLE [dbo].[InvestmentPriority] ADD  CONSTRAINT [DF_InvestmentPriority_CreateID]  DEFAULT ('') FOR [CreateID]
+ALTER TABLE [dbo].[InvestmentPriority] ADD  CONSTRAINT [DF_InvestmentPriority_CreateDate]  DEFAULT (getdate()) FOR [CreateDate]
+ALTER TABLE [dbo].[InvestmentPriority] ADD  CONSTRAINT [DF_InvestmentPriority_CreateNode]  DEFAULT ('') FOR [CreateNode]
+ALTER TABLE [dbo].[InvestmentPriority] ADD  CONSTRAINT [DF_InvestmentPriority_UpdateID]  DEFAULT ('') FOR [UpdateID]
+ALTER TABLE [dbo].[InvestmentPriority] ADD  CONSTRAINT [DF_InvestmentPriority_UpdateNode]  DEFAULT ('') FOR [UpdateNode]

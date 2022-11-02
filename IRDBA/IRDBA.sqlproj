@@ -65,6 +65,23 @@
     <Build Include="LPInvestmentContactNote.sql" />
     <Build Include="LPInvestmentContact.sql" />
     <Build Include="InvestorContactLegalEntity.sql" />
+    <Build Include="InvestorType.sql" />
+    <Build Include="CoveragePerson.sql" />
+    <Build Include="LPInvestmentCoverage.sql" />
+    <Build Include="InvestorTypeLink.sql" />
+    <Build Include="InvestorConsultant.sql" />
+    <Build Include="InvestorAddress.sql" />
+    <Build Include="LPInvestmentDetail.sql" />
+    <Build Include="ThirdPartyType.sql" />
+    <Build Include="ContactPerson.sql" />
+    <Build Include="InvestorContactCategory.sql" />
+    <Build Include="InvestorInfoShareType.sql" />
+    <Build Include="Address.sql" />
+    <Build Include="StateProvince.sql" />
+    <Build Include="Country.sql" />
+    <Build Include="InvStrategy.sql" />
+    <Build Include="InvestmentStatus.sql" />
+    <Build Include="InvestmentPriority.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment1.sql" />
