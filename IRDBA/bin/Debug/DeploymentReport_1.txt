@@ -1,0 +1,29 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Drop
+       [dbo].[DF_Investor_AccreditedInvestor] (Default Constraint)
+       [dbo].[DF_Investor_Active] (Default Constraint)
+       [dbo].[DF_Investor_CreateDate] (Default Constraint)
+       [dbo].[DF_Investor_CreateID] (Default Constraint)
+       [dbo].[DF_Investor_CreateNode] (Default Constraint)
+       [dbo].[DF_Investor_Distressed] (Default Constraint)
+       [dbo].[DF_Investor_FixedIncomeCreditInvestor] (Default Constraint)
+       [dbo].[DF_Investor_LPAccountGeneralName] (Default Constraint)
+       [dbo].[DF_Investor_QualifiedPurchaser] (Default Constraint)
+       [dbo].[DF_Investor_SourceOfKnowledge] (Default Constraint)
+       [dbo].[DF_Investor_UpdateID] (Default Constraint)
+       [dbo].[DF_Investor_UpdateNode] (Default Constraint)
+     Create
+       [dbo].[InvestorContact] (Table)
+       [dbo].[InvestorContactAddress] (Table)
+
+** Supporting actions

@@ -1,0 +1,37 @@
+﻿CREATE TABLE [dbo].[LPInvestment](
+	[ID] [int] IDENTITY(0,1) NOT FOR REPLICATION NOT NULL,
+	[Name] [nvarchar](256) NOT NULL,
+	[AbbrevName] [nvarchar](64) NULL,
+	[Description] [nvarchar](max) NULL,
+	[InvestorID] [int] NOT NULL,
+	[InvestmentStatusID] [int] NULL,
+	[InvStrategyID] [int] NOT NULL,
+	[GeneralFundID] [int] NULL,
+	[PlacementAgentID] [int] NULL,
+	[Exposure] [decimal](20, 8) NULL,
+	[CustomInfo] [xml] NULL,
+	[Deleted] [bit] NOT NULL,
+	[CreateID] [nvarchar](32) NULL,
+	[CreateDate] [datetime] NULL,
+	[CreateNode] [nvarchar](32) NULL,
+	[UpdateID] [nvarchar](32) NULL,
+	[UpdateDate] [datetime] NULL,
+	[UpdateNode] [nvarchar](32) NULL,
+	[tempIRInvestorID] [int] NULL,
+	[CoInvestInterest] [bit] NOT NULL,
+	[ReInvestGains] [bit] NOT NULL,
+	[OnePageSummary] [bit] NOT NULL,
+	[InvestorPress] [bit] NOT NULL,
+	[OfferMemo] [bit] NOT NULL,
+	[WebAccess] [bit] NOT NULL,
+	[InvestSummary] [bit] NOT NULL,
+	[ApprovedMarketing] [bit] NULL,
+	[StrategicPartnership] [bit] NULL,
+	[OFTInvestor] [bit] NULL,
+	[InvestmentPriorityID] [int] NULL,
+	[OldInvestmentStatusID] [int] NULL,
+ CONSTRAINT [PK_LPInvestmentID] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
